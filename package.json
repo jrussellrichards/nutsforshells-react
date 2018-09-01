@@ -1,0 +1,22 @@
+{
+  "name": "nutsforshells",
+  "version": "1.0.0",
+  "description": "Administración malacológica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrussellrichards/NutsForShell.git"
+  },
+  "author": "Javier Richards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrussellrichards/NutsForShell/issues"
+  },
+  "homepage": "https://github.com/jrussellrichards/NutsForShell#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
