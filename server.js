@@ -1,15 +1,30 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-
+var mysql      = require('mysql');
 const port = process.env.PORT || 5000;
 
-app.use(express.static(path.resolve(__dirname, './client/public')));
-
-app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, './client/public', 'index.html'));
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'shells'
 });
+connection.connect(); 
 
-app.use('*', express.static(path.resolve('./client/public/index.html')));
+  
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
-app.listen(port, () => console.log('Example app listening on port 5000!'));
+// create a GET route
+app.get('/express', (req, res) => {
+  // res.send({ saludo: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+  connection.query('select * from shell', function(err, rows, fields) {
+  
+    res.send(rows);
+    console.log(rows)
+  });
+
+
+
+
+});

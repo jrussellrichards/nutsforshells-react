@@ -10,32 +10,45 @@ import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 
+import { Link } from "react-router-dom";
+
+
 export const mailFolderListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <InboxIcon />
-      </ListItemIcon>
-      <ListItemText primary="Descargar PDF" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <ListItemText primary="Agregar especie" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <SendIcon />
-      </ListItemIcon>
-      <ListItemText primary="Enviar por correo" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Buscar" />
-    </ListItem>
+    <Link style={{ textDecoration: 'none' }} to="/pdf">
+      <ListItem button>
+        <ListItemIcon>
+          <InboxIcon />
+        </ListItemIcon>
+        <ListItemText primary="Descargar PDF" />
+      </ListItem>
+    </Link>
+    <Link style={{ textDecoration: 'none' }} to="/lista">
+      <ListItem button>
+        <ListItemIcon>
+          <StarIcon />
+        </ListItemIcon>
+        <ListItemText primary="Lista completa" />
+      </ListItem>
+    </Link>
+    <Link style={{ textDecoration: 'none' }} to="/busqueda">
+      <ListItem button>
+        <ListItemIcon>
+          <SendIcon />
+        </ListItemIcon>
+        <ListItemText primary="Buscar" />
+      </ListItem>
+
+    </Link>
+    <Link style={{ textDecoration: 'none' }} to="/correo">
+      <ListItem button>
+        <ListItemIcon>
+          <DraftsIcon />
+        </ListItemIcon>
+        <ListItemText primary="Enviar por correo" />
+      </ListItem>
+
+    </Link>
   </div>
 );
 
