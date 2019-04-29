@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MUIDataTable from "mui-datatables";
+const axios = require('axios');
 
 
 const styles = theme => ({
@@ -90,16 +91,32 @@ const columns = [
 
  ];
 
+
 const options = {
   filterType: 'dropdawn',
-  responsive: 'stacked'
-};
+  responsive: 'stacked',
+  onRowsDelete: (RowsDeleted) => {
+    // fetch('/eliminado', {
+    //   method: 'POST',
+    //   body: JSON.stringify(RowsDeleted)
+    // });
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/eliminado',
+      data: RowsDeleted
+    });
+  }
+        
+      
+  }
+ 
+
 
 function SimpleTable(props) {
   var arr = props.datos.map(dato=>Object.values(dato))
   console.log(arr)
-  return (
- 
+  return ( 
     
     <MUIDataTable
       title={"NutsForShells"}

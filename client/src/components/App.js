@@ -13,15 +13,15 @@ class App extends Component {
     
     fetch("/express")
       .then(r => r.json())
-      .then(users => {
-        this.setState({rows: users});
-      })
+      .then(especies => {
+        this.setState({rows: especies});
+      })  
   }
 
   render() {
     return (
       // <SideBar> 
-        <Table datos={rows}/> 
+        <Table datos={this.state.rows}/> 
       // </SideBar> 
       
 
@@ -32,10 +32,10 @@ class App extends Component {
 
 export default App;
 
-let rows = [];
+// let rows = [];
 
-const loadingPromise = fetch('/express')
-  .then(response => response.json())
-  .then(json => {
-     rows = json
-  })
+// fetch('/express')
+//   .then(response => response.json())
+//   .then(json => {
+//      rows = json
+//   })
