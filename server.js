@@ -26,14 +26,21 @@ app.get('/', function (req, res) {
   res.send('GET request to the HOME');
 });
 
-app.post('/eliminado', function (req, res) {
-  console.log(req.data)
-  for (const prop in req.data) {
-    console.log(prop);
-  }
+app.get('/eliminado/:id', function (req, res) {
+  connection.query('delete from shell where id='+req.params.id, function(err, rows, fields) {
   
-  console.log('holass')
+    res.send('eliminado'+req.params.id);
+  });
+
 });
+// app.post('/eliminado', function (req, res) {
+//   console.log(req.data)
+//   for (const prop in req.data) {
+//     console.log(prop);
+//   }
+
+//   console.log('holass')
+// });
 // create a GET route
 app.get('/express', (req, res) => {
   // res.send({ saludo: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
@@ -48,3 +55,13 @@ app.get('/express', (req, res) => {
 
 
 });
+
+app.get('/test/:id', (req, res) => {
+  // res.send({ saludo: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+  connection.query('select * from shell where id='+req.params.id, function(err, rows, fields) {
+  
+    res.send(rows);
+    // console.log(rows)
+  });
+});
+ 
