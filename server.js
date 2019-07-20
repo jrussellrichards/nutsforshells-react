@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
 });
 connection.connect(); 
 
-  
+
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
