@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MUIDataTable from "mui-datatables";
 const axios = require('axios');
@@ -101,36 +101,53 @@ const columns = [
  ];
 
 
+<<<<<<< HEAD
 const options = {
   filterType: 'dropdawn',
   responsive: 'stacked',
   onRowsDelete: (RowsDeleted) => {
 
     console.log(RowsDeleted)
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/eliminado',
-      data: RowsDeleted
-    });
-  }
-        
-      
-  }
+=======
+
  
 
 
-function SimpleTable(props) {
-  var arr = props.datos.map(dato=>Object.values(dato))
-  console.log(arr)
-  return ( 
+class  SimpleTable extends Component {
+  
+  onRowsDelete= (RowsDeleted) => {
+    let id_eliminado=this.props.datos[RowsDeleted.data[0].dataIndex].id
+>>>>>>> f64d597005c5a51a046f2965a0fcd11d4e480643
+    axios({
+      method: 'get',
+      url: 'localhost:5000/eliminado/'+id_eliminado,
+      data: RowsDeleted
+    });
+  }
+  options = {
+    filterType: 'dropdawn',
+    responsive: 'stacked',
+    onRowsDelete:this.onRowsDelete
+        
+    }
+  
+  render(){
+    let arr = this.props.datos.map(dato=>Object.values(dato))
+    return ( 
+      
     
-    <MUIDataTable
-      title={"NutsForShells"}
-      data={arr}
-      columns={columns}
-      options={options}
-    />
-  );
+      <MUIDataTable
+        title={"NutsForShells"}
+        data={arr}
+        columns={columns}
+        options={this.options}
+      />
+    );
+     
+  }  
+
+
+  
 }
 
 SimpleTable.propTypes = {
