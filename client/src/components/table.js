@@ -88,6 +88,15 @@ const columns = [
     sort: false
    }
   },
+  {
+    name: "ID",
+    options: {
+        // display: "excluded",
+        filter: false,
+        sort: false,
+        download: false,
+    },
+},
 
  ];
 
@@ -96,11 +105,8 @@ const options = {
   filterType: 'dropdawn',
   responsive: 'stacked',
   onRowsDelete: (RowsDeleted) => {
-    // fetch('/eliminado', {
-    //   method: 'POST',
-    //   body: JSON.stringify(RowsDeleted)
-    // });
 
+    console.log(RowsDeleted)
     axios({
       method: 'post',
       url: 'http://localhost:5000/eliminado',

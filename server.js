@@ -28,11 +28,7 @@ app.get('/', function (req, res) {
 
 app.post('/eliminado', function (req, res) {
   console.log(req.data)
-  for (const prop in req.data) {
-    console.log(prop);
-  }
   
-  console.log('holass')
 });
 // create a GET route
 app.get('/express', (req, res) => {
