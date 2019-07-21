@@ -101,39 +101,42 @@ const columns = [
  ];
 
 
-const options = {
-  filterType: 'dropdawn',
-  responsive: 'stacked',
-  onRowsDelete: (RowsDeleted) => {
 
-    console.log(RowsDeleted)
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/eliminado',
-      data: RowsDeleted
-    });
-  }
-        
-      
-  }
  
 function SimpleTable(props) {
-  var arr = props.datos.map(dato=>Object.values(dato))
-  console.log(arr)
+  var shells = props.datos.map(dato=>Object.values(dato))
+
+
+  const options = {
+    filterType: 'dropdawn',
+    responsive: 'stacked',
+    onRowsDelete: (RowsDeleted,dataRows) => {
+      
+      // const idsToDelete = dataRows.map(d => shells[d.dataIndex].id);
+      axios({
+        method: 'post',
+        url: 'http://localhost:5000/eliminado',
+        data: dataRows
+      });
+    }        
+        
+    }
+
+  // console.log(shells)
   return ( 
     
     <MUIDataTable
       title={"NutsForShells"}
-      data={arr}
+      data={shells}
       columns={columns}
       options={options}
     />
   );
 }
 
-SimpleTable.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// SimpleTable.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default (SimpleTable);
 
