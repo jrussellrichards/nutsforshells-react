@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';  //verrificacion de tipos
 import MUIDataTable from "mui-datatables";
 const axios = require('axios');
 
@@ -15,7 +15,6 @@ const styles = theme => ({
   },
 });
 
-// const columns = ["Familia", "Genero", "Especie", "Calidad","Tamaño","País","Comentario","Precio","habitad"];
 const columns = [
   {
    name: "Familia",
@@ -100,8 +99,6 @@ const columns = [
 
  ];
 
-
-
  
 function SimpleTable(props) {
   var shells = props.datos.map(dato=>Object.values(dato))
@@ -110,13 +107,14 @@ function SimpleTable(props) {
   const options = {
     filterType: 'dropdawn',
     responsive: 'stacked',
-    onRowsDelete: (RowsDeleted,dataRows) => {
+    onRowsDelete: (RowsDeleted) => {
       
-      // const idsToDelete = dataRows.map(d => shells[d.dataIndex].id);
+      const ids = RowsDeleted.data.map(d => d.dataIndex); 
+      const idsToDeleted=ids.map(d=>shells[d][9])
       axios({
         method: 'post',
         url: 'http://localhost:5000/eliminado',
-        data: dataRows
+        data: RowsDeleted
       });
     }        
         
