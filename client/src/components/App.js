@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SideBar from './sideBar'
 import Table from './table'
 
 class App extends Component {
@@ -23,8 +21,6 @@ class App extends Component {
       // <SideBar> 
         <Table datos={this.state.rows}/> 
       // </SideBar> 
-      
-
       
     );
   }

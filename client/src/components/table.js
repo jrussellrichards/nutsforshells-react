@@ -4,6 +4,22 @@ import MUIDataTable from "mui-datatables";
 const axios = require('axios');
 
 
+var data= {}
+const deleteRows = (RowsDeleted) => {
+  const ids = RowsDeleted.data.map(d => data[d.dataIndex].id);
+  // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
+  // console.log(idsToDeleted)  //Now you will get data
+  console.log(ids)  //Now you will get data
+  console.log(data)  //Now you will get data
+  axios({
+    method: 'post',
+    url: 'http://localhost:5000/eliminado',
+    data: {"ids_eliminados":ids},
+  });
+}
+
+
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -102,21 +118,25 @@ const columns = [
  
 function SimpleTable(props) {
   var shells = props.datos.map(dato=>Object.values(dato))
+  
 
 
   const options = {
     filterType: 'dropdawn',
     responsive: 'stacked',
     onRowsDelete: (RowsDeleted) => {
-      
-      const ids = RowsDeleted.data.map(d => d.dataIndex); 
-      const idsToDeleted=ids.map(d=>shells[d][9])
+      const ids = RowsDeleted.data.map(d => shells[d.dataIndex][9]);
+      // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
+      // console.log(idsToDeleted)  //Now you will get data
+      // console.log(ids)  //Now you will get data
+      // console.log(shells)  //Now you will get data
       axios({
         method: 'post',
         url: 'http://localhost:5000/eliminado',
-        data: RowsDeleted
+        data: {"ids_eliminados":ids},
       });
-    }        
+    },
+    // onRowsSelect: deleteRows
         
     }
 
