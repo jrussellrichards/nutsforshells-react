@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from './table'
+import AddShellModal from './AddShellModal'
 
 class App extends Component {
   state = {
-    rows: []
+    rows: [],
+    addModal: true
+
+
   }
   
+   handleOpen = () => {
+    this.setState({
+      addModal:true
+    }
+    );
+  };
+
+  handleClose = () => {
+    this.setState({
+      addModal:false
+    }
+    );
+  };
+
   componentDidMount() {
     
     fetch("/express")
@@ -18,9 +36,10 @@ class App extends Component {
 
   render() {
     return (
-      // <SideBar> 
-        <Table datos={this.state.rows}/> 
-      // </SideBar> 
+      <div>
+        <Table datos={this.state.rows}/>    
+        <AddShellModal /> 
+     </div>
       
     );
   }

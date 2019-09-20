@@ -1,10 +1,12 @@
 import React from 'react';
 // import PropTypes from 'prop-types';  //verrificacion de tipos
 import MUIDataTable from "mui-datatables";
+import AddIcon from "@material-ui/icons/Add";
+import CustomToolbar from "./CustomToolbar";
 const axios = require('axios');
 
 
-var data= {}
+var data = {}
 const deleteRows = (RowsDeleted) => {
   const ids = RowsDeleted.data.map(d => data[d.dataIndex].id);
   // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
@@ -14,7 +16,7 @@ const deleteRows = (RowsDeleted) => {
   axios({
     method: 'post',
     url: 'http://localhost:5000/eliminado',
-    data: {"ids_eliminados":ids},
+    data: { "ids_eliminados": ids },
   });
 }
 
@@ -33,123 +35,125 @@ const styles = theme => ({
 
 const columns = [
   {
-   name: "Familia",
-   options: {
-    filter: true,
-    sort: false
-   }
-  },
-   
-  {
-   name: "Genero",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Familia",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
 
   {
-   name: "Especie",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Genero",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
 
   {
-   name: "Calidad",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Especie",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
 
   {
-   name: "Tamaño",
-   options: {
-    filter: false,
-    sort: false
-   }
+    name: "Calidad",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
 
   {
-   name: "País",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Tamaño",
+    options: {
+      filter: false,
+      sort: false
+    }
   },
 
   {
-   name: "Comentario",
-   options: {
-    filter: false,
-    sort: false
-   }
+    name: "País",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
 
   {
-   name: "Precio",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Comentario",
+    options: {
+      filter: false,
+      sort: false
+    }
   },
 
   {
-   name: "Habitat",
-   options: {
-    filter: true,
-    sort: false
-   }
+    name: "Precio",
+    options: {
+      filter: true,
+      sort: false
+    }
+  },
+
+  {
+    name: "Habitat",
+    options: {
+      filter: true,
+      sort: false
+    }
   },
   {
     name: "ID",
     options: {
-        // display: "excluded",
-        filter: false,
-        sort: false,
-        download: false,
+      // display: "excluded",
+      filter: false,
+      sort: false,
+      download: false,
     },
-},
+  },
 
- ];
+];
 
- 
+
 function SimpleTable(props) {
-  var shells = props.datos.map(dato=>Object.values(dato))
-  
+  var shells = props.datos.map(dato => Object.values(dato))
+
 
 
   const options = {
     filterType: 'dropdawn',
     responsive: 'stacked',
-    onRowsDelete: (RowsDeleted) => {
-      const ids = RowsDeleted.data.map(d => shells[d.dataIndex][9]);
-      // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
-      // console.log(idsToDeleted)  //Now you will get data
-      // console.log(ids)  //Now you will get data
-      // console.log(shells)  //Now you will get data
-      axios({
-        method: 'post',
-        url: 'http://localhost:5000/eliminado',
-        data: {"ids_eliminados":ids},
-      });
+    customToolbar: () => {
+      return (
+        <CustomToolbar />
+      );
     },
-    // onRowsSelect: deleteRows
-        
-    }
 
-  // console.log(shells)
-  return ( 
-    
-    <MUIDataTable
-      title={"NutsForShells"}
-      data={shells}
-      columns={columns}
-      options={options}
-    />
-  );
+  onRowsDelete: (RowsDeleted) => {
+    const ids = RowsDeleted.data.map(d => shells[d.dataIndex][9]);
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/eliminado',
+      data: { "ids_eliminados": ids },
+    });
+  },
+    // onRowsSelect: deleteRows
+
+  }
+
+// console.log(shells)
+return (
+
+  <MUIDataTable
+    title={"NutsForShells"}
+    data={shells}
+    columns={columns}
+    options={options}
+  />
+);
 }
 
 // SimpleTable.propTypes = {
