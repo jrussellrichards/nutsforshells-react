@@ -6,7 +6,7 @@ import AddShellModal from './AddShellModal'
 class App extends Component {
   state = {
     rows: [],
-    addModal: true
+    addModal: false
 
 
   }
@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div>
         <Table datos={this.state.rows}/>    
-        <AddShellModal /> 
+        {/* <AddShellModal />  */}
      </div>
       
     );
