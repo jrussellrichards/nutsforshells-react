@@ -3,24 +3,16 @@ import React from 'react';
 import MUIDataTable from "mui-datatables";
 import AddIcon from "@material-ui/icons/Add";
 import CustomToolbar from "./CustomToolbar";
-const axios = require('axios');
-
+import {eliminar} from "../services/nutsforshells";
 
 var data = {}
 var shells = {}
-const deleteRows = (RowsDeleted) => {
-  const ids = RowsDeleted.data.map(d => data[d.dataIndex].id);
+// const deleteRows = (RowsDeleted) => {
+//   const ids = RowsDeleted.data.map(d => data[d.dataIndex].id);
   // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
   // console.log(idsToDeleted)  //Now you will get data
-  console.log(ids)  //Now you will get data
-  console.log(data)  //Now you will get data
-  axios({
-    method: 'post',
-    url: 'http://localhost:5000/eliminado',
-    data: { "ids_eliminados": ids },
-  });
-}
-
+  // console.log(ids)  //Now you will get data
+  // console.log(data)  //Now you will get data
 
 
 const styles = theme => ({
@@ -135,11 +127,8 @@ function SimpleTable(props) {
 
   onRowsDelete: (RowsDeleted) => {
     const ids = RowsDeleted.data.map(d => shells[d.dataIndex][9]);
-    axios({
-      method: 'post',
-      url: 'http://localhost:5000/eliminado',
-      data: { "ids_eliminados": ids },
-    });
+    eliminar(ids)
+
   },
     // onRowsSelect: deleteRows
 

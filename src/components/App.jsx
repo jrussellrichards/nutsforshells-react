@@ -8,7 +8,6 @@ class App extends Component {
     rows: [],
     addModal: false
 
-
   }
   
    handleOpen = () => {
@@ -27,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("/express")
+    fetch("https://nutsforshells-api.herokuapp.com/express")
       .then(r => r.json())
       .then(especies => {
         this.setState({rows: especies});
