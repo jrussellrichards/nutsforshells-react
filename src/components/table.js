@@ -7,6 +7,7 @@ const axios = require('axios');
 
 
 var data = {}
+var shells = {}
 const deleteRows = (RowsDeleted) => {
   const ids = RowsDeleted.data.map(d => data[d.dataIndex].id);
   // const idsToDeleted = ids.map(d => data[d][9]);   //This is possibly this, ids.map(d => data[d][9]) 
@@ -119,7 +120,7 @@ const columns = [
 
 
 function SimpleTable(props) {
-  var shells = props.datos.map(dato => Object.values(dato))
+   shells = props.datos.map(dato => Object.values(dato))
 
 
 
