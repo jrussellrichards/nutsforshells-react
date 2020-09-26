@@ -7,13 +7,11 @@ import AddIcon from "@material-ui/icons/Add";
 import { withStyles } from "@material-ui/core/styles";
 import forms from './forms'
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50 ;
 
   return {
     top: `${top}%`,
@@ -32,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    left: '50%'
+
   },
 }));
 
@@ -54,9 +54,11 @@ const SimpleModal = function SimpleModal() {
   );
 
   return (
-    <div>
  
-            <AddIcon onClick={handleOpen} className={classes.deleteIcon} />
+      <IconButton onClick={handleOpen} className={classes.iconButton} >
+         
+ 
+      <AddIcon  className={classes.deleteIcon} />
  
       <Modal
         open={open}
@@ -66,7 +68,7 @@ const SimpleModal = function SimpleModal() {
       >
         {body}
       </Modal>
-    </div>
+     </IconButton>
   );
 };
 
