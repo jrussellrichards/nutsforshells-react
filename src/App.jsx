@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Table from './table'
-import AddShellModal from './AddShellModal'
+import Table from './components/table'
 
 class App extends Component {
   state = {
