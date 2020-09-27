@@ -1,9 +1,18 @@
 
 export default  [
-    {
-      name: "Familia",
-      label: "Familia",
-      options: {
+  {
+    name: "ID",
+    options: {
+      // display: "excluded",
+      filter: false,
+      sort: false,
+      download: false,
+    },
+  },
+  {
+    name: "Familia",
+    label: "Familia",
+    options: {
         filter: true,
         sort: false
       }
@@ -57,6 +66,7 @@ export default  [
       }
     },
   
+    
     {
       name: "Precio",
       options: {
@@ -64,7 +74,7 @@ export default  [
         sort: false
       }
     },
-  
+    
     {
       name: "Habitat",
       options: {
@@ -72,14 +82,4 @@ export default  [
         sort: false
       }
     },
-    {
-      name: "ID",
-      options: {
-        // display: "excluded",
-        filter: false,
-        sort: false,
-        download: false,
-      },
-    },
-  
   ];

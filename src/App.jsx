@@ -7,7 +7,6 @@ class App extends Component {
     rows: [],
     addModal: false
 
-
   }
   
    handleOpen = () => {
@@ -26,7 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("/express")
+    fetch("/shells")
       .then(r => r.json())
       .then(especies => {
         this.setState({rows: especies});
@@ -35,10 +34,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+
         <Table datos={this.state.rows}/>    
-        {/* <AddShellModal />  */}
-     </div>
+
       
     );
   }
@@ -46,10 +44,3 @@ class App extends Component {
 
 export default App;
 
-// let rows = [];
-
-// fetch('/express')
-//   .then(response => response.json())
-//   .then(json => {
-//      rows = json
-//   })
