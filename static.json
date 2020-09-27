@@ -1,8 +1,0 @@
-{
-    
-    "proxies": {
-        "/api/": {
-          "origin": "https://nutsforshells-api.herokuapp.com/"
-        }
-      }
-  }
