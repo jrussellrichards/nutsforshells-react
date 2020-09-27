@@ -21,8 +21,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000/",
-  "proxy2": "https://nutsforshells-api.herokuapp.com/",
+  "proxy3": "http://localhost:5000/",
+  "proxy": "https://nutsforshells-api.herokuapp.com/",
   "browserslist": {
     "production": [
       ">0.2%",
