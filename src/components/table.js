@@ -23,7 +23,6 @@ function SimpleTable(props) {
     const ids = RowsDeleted.data.map(d => shells[d.dataIndex][0]);
     rest.deleteShell(ids)}
 
-
   }
 
 return (
@@ -38,5 +37,3 @@ return (
 }
 
 export default (SimpleTable);
-
-

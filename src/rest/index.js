@@ -1,6 +1,7 @@
-import axios from "axios";
 import deleteShell from "./deleteShell";
+import addShell from "./addShell";
 
 export default {
   deleteShell,
+  addShell
 };

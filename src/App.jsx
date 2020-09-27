@@ -6,7 +6,6 @@ class App extends Component {
   state = {
     rows: [],
     addModal: false
-
   }
   
    handleOpen = () => {

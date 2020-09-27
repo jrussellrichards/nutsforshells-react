@@ -5,7 +5,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from "@material-ui/icons/Add";
 import { withStyles } from "@material-ui/core/styles";
-import forms from './forms'
+import AddShell from '../containers/addShell'
+// import forms from '../components/forms'
 
 
 
@@ -50,15 +51,15 @@ const SimpleModal = function SimpleModal() {
   };
 
   const body = (
-    <forms.AddShell/>
+    <AddShell/>
   );
 
   return (
  
-      <IconButton onClick={handleOpen} className={classes.iconButton} >
+      <IconButton  className={classes.iconButton} >
          
  
-      <AddIcon  className={classes.deleteIcon} />
+      <AddIcon   onClick={handleOpen}className={classes.deleteIcon} />
  
       <Modal
         open={open}
