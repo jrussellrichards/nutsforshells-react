@@ -15,6 +15,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
+  "engines": {
+    "node": "12.18.4"
+  },
  "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
 
   "scripts": {
