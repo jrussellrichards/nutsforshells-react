@@ -23,7 +23,7 @@ export default ({ reqRegister, messages = {} }) => {
   return (
     <section className="register-form-wrapper">
       <label id="register-label">Agregar especie</label>
-      <form id="register-form">
+      <form id="register-form" >
         {/* <FormLabel style={label}>Email</FormLabel> */}
 
         <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>Familia</label>

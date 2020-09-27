@@ -13,11 +13,14 @@ function SimpleTable(props) {
     filterType: 'dropdown',
     responsive: 'stacked',
     filter: true,
+    draggableColumns : {enabled:true},
+    sort :true,
     customToolbar: () => {
       return (
         <AddShellModal />
       );
     },
+    columnOrder: [0,1,2,3,4,5,6,7,9,8],
 
   onRowsDelete: (RowsDeleted) => {
     const ids = RowsDeleted.data.map(d => shells[d.dataIndex][0]);

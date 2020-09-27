@@ -5,7 +5,7 @@ export default  [
     options: {
       // display: "excluded",
       filter: false,
-      sort: false,
+      sort: true,
       download: false,
     },
   },
@@ -14,7 +14,7 @@ export default  [
     label: "Familia",
     options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   
@@ -22,7 +22,7 @@ export default  [
       name: "Genero",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   
@@ -30,7 +30,7 @@ export default  [
       name: "Especie",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   
@@ -38,7 +38,7 @@ export default  [
       name: "Calidad",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   
@@ -46,7 +46,7 @@ export default  [
       name: "Tamaño",
       options: {
         filter: false,
-        sort: false
+        sort: true
       }
     },
   
@@ -54,7 +54,7 @@ export default  [
       name: "País",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   
@@ -62,7 +62,7 @@ export default  [
       name: "Comentario",
       options: {
         filter: false,
-        sort: false
+        sort: true
       }
     },
   
@@ -71,7 +71,7 @@ export default  [
       name: "Precio",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
     
@@ -79,7 +79,7 @@ export default  [
       name: "Habitat",
       options: {
         filter: true,
-        sort: false
+        sort: true
       }
     },
   ];

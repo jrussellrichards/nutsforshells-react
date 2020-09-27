@@ -22,6 +22,7 @@ $register-form-border-radius: 20px;
   flex-direction: column;
   background-color: $color-form-background;
   border-radius: $register-form-border-radius;
+  height: 100%;
 
   button:hover {
     cursor: pointer;
@@ -36,6 +37,7 @@ $register-form-border-radius: 20px;
     flex-direction: inherit;
     align-items: center;
     padding: 2.5em 3em;
+    overflow: scroll;
 
     .register-input {
       width: 100%;
