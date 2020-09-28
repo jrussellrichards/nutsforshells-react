@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("https:/nutsforshells-api.herokuapp.com/shells")
+    fetch("/shells")
       .then(r => r.json())
       .then(especies => {
         this.setState({rows: especies});
