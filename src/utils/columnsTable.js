@@ -6,7 +6,7 @@ export default  [
       // display: "excluded",
       filter: false,
       sort: true,
-      download: false,
+      download: true,
     },
   },
   {

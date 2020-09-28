@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from './components/table'
-
+import rest from './rest'
 class App extends Component {
   state = {
     rows: [],
@@ -23,12 +23,8 @@ class App extends Component {
   };
 
   componentDidMount() {
+    rest.getShells().then(data => this.setState({rows: data.data } ))
     
-    fetch("https://nutsforshells-api.herokuapp.com/shells")
-      .then(r => r.json())
-      .then(especies => {
-        this.setState({rows: especies});
-      })  
   }
 
   render() {
@@ -36,10 +32,8 @@ class App extends Component {
 
         <Table datos={this.state.rows}/>    
 
-      
     );
   }
 }
 
 export default App;
-

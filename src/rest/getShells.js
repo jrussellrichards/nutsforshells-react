@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export default () => {
-  axios({
-    method: 'delete',
-    url: 'https://nutsforshells-api.herokuapp.com/shells',
-  }).then((res) => res.data);
-};
+
+
+
+const getShells = async () => {
+    return await axios.get('https://nutsforshells-api.herokuapp.com/shells' );
+  }
+
+export default getShells

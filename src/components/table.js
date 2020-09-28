@@ -21,6 +21,12 @@ function SimpleTable(props) {
       );
     },
     columnOrder: [0,1,2,3,4,5,6,7,9,8],
+    downloadOptions: {filename:'shells.csv',
+    separator: ',',
+  filterOptions:{
+    useDisplayedRowsOnly:true,
+    useDisplayedColumnsOnly:true
+  }},
 
   onRowsDelete: (RowsDeleted) => {
     const ids = RowsDeleted.data.map(d => shells[d.dataIndex][0]);
