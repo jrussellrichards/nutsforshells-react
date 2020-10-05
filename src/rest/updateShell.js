@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const updateUser = (id, form) =>
+const updateUser = ( form) =>
   axios({
     method: "put",
-    url: `https://nutsforshells-api.herokuapp.com/users/${id}`,
+    url: `shell`,
     data: form,
   }).then((res) => res.data);
 

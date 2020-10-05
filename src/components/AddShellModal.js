@@ -5,14 +5,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from "@material-ui/icons/Add";
 import { withStyles } from "@material-ui/core/styles";
-import AddShell from '../containers/addShell'
+import AddShell from "../containers/addShell";
 // import forms from '../components/forms'
-
-
 
 function getModalStyle() {
   const top = 50;
-  const left = 50 ;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -31,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
- 
   },
 }));
 
@@ -49,17 +46,14 @@ const SimpleModal = function SimpleModal() {
     setOpen(false);
   };
 
-  const body = (
-    <AddShell/>
-  );
+  const body = <AddShell />;
 
   return (
- 
-      <IconButton  className={classes.iconButton} >
-         
- 
-      <AddIcon   onClick={handleOpen}className={classes.deleteIcon} />
- 
+    < >
+      <IconButton onClick={handleOpen} className={classes.iconButton}>
+        <AddIcon  className={classes.deleteIcon} />
+      </IconButton>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -68,7 +62,7 @@ const SimpleModal = function SimpleModal() {
       >
         {body}
       </Modal>
-     </IconButton>
+    </>
   );
 };
 

@@ -1,85 +1,215 @@
+import React from "react";
+import CustomCell from "../components/customCell";
+import EditButton from "../components/editButton";
+const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
+  return [
+    {
+      name: "ID",
+      options: {
+        // display: "excluded",
+        filter: false,
+        sort: true,
+        download: true,
+      },
+    },
+    {
+      name: "family",
+      label: "Family",
+      options: {
+        filter: true,
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
+    },
 
-export default  [
-  {
-    name: "ID",
-    options: {
-      // display: "excluded",
-      filter: false,
-      sort: true,
-      download: true,
-    },
-  },
-  {
-    name: "Familia",
-    label: "Familia",
-    options: {
-        filter: true,
-        sort: true
-      }
-    },
-  
     {
-      name: "Genero",
+      name: "gender",
+      label: "Gender",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
+
     {
-      name: "Especie",
+      name: "species",
+      label: "Species",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
+
     {
-      name: "Calidad",
+      name: "quality",
+      label: "Quality",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
+
     {
-      name: "Tamaño",
+      name: "size",
+      label: "Size",
       options: {
         filter: false,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
+
     {
-      name: "País",
+      name: "country",
+      label: "Country",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
+
     {
-      name: "Comentario",
+      name: "comment",
+      label: "Comment",
       options: {
         filter: false,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-  
-    
+
     {
-      name: "Precio",
+      name: "price",
+      label: "Price",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
     },
-    
+
     {
-      name: "Habitat",
+      name: "habitat",
+      label: "Habitat",
       options: {
         filter: true,
-        sort: true
-      }
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+              rowIndex={tableMeta.rowIndex}
+              id={tableMeta.columnData["id"]}
+            />
+          );
+        },
+      },
+    },
+    {
+      name: "Editar",
+      options: {
+        download: false,
+
+        customBodyRender: (value, tableMeta) => {
+          return (
+            <EditButton
+              rowIndex={tableMeta.rowIndex}
+              onChangeInEditingMode={onChangeInEditingMode}
+              rowTarget={rowNumber}
+            />
+          );
+          // return <b>{!rowTarget ?  <button onClick={() =>{onChangeInEditingMode(tableMeta.rowIndex)}}>Editar</button> : <button onClick={onChangeInEditingMode}>Aceptar</button>}</b>
+        },
+      },
     },
   ];
+};
+
+export default customColumns;
