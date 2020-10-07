@@ -9,7 +9,6 @@ var shells = {}
 
 function SimpleTable(props) {
    shells = props.datos.map(dato => Object.values(dato))
-   const [isInEditinMode,setIsInEditinMode] = useState(false)
    const [form,setForm] = useState({
       id:'',
       family:'',
@@ -27,13 +26,11 @@ function SimpleTable(props) {
 
    
    const onChangeInEditingMode = (rowNumber) => {
-     console.log('entro con el row'+rowNumber)
      if(form.rowNumber===''){
       setForm({...form,rowNumber})
   
      }
      else{
-      console.log('entro al primer if con el row:'+rowNumber)
 
       rest.updateShell(form)
       setForm({...form,rowNumber:''})
@@ -41,9 +38,9 @@ function SimpleTable(props) {
      }
    }
 
-   const onChangeForm = (column,input) => {
+   const onChangeForm = (column,value) => {
 
-    setForm({ ...form, [column]: input.target.value })
+    setForm({ ...form, [column]: value })
    }
 
 
@@ -56,8 +53,8 @@ function SimpleTable(props) {
     draggableColumns : {enabled:true},
     sort :true,
     responsive:'vertical',
-    // customRowRender:(data, dataIndex, rowIndex = 1) => {
-    //   return <CustomRow data={shells}/>
+    // customRowRender:(data, dataIndex, rowIndex ) => {
+    //   return <CustomRow rowIndex = {rowIndex} data={shells}/>
     // },
     customToolbar: () => {
       return (

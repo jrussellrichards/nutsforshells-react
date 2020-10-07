@@ -10,6 +10,17 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
         filter: false,
         sort: true,
         download: true,
+        customBodyRender: (value, tableMeta, rowData) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
       },
     },
     {
@@ -178,15 +189,14 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
       options: {
         filter: true,
         sort: true,
-        customBodyRender: (value, tableMeta, updateValue) => {
+        customBodyRender: (value, tableMeta, rowData) => {
           return (
             <CustomCell
+              rowIndex={tableMeta.rowIndex}
               rowTarget={rowNumber}
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
-              rowIndex={tableMeta.rowIndex}
-              id={tableMeta.columnData["id"]}
             />
           );
         },
@@ -197,7 +207,7 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
       options: {
         download: false,
 
-        customBodyRender: (value, tableMeta) => {
+        customBodyRender: (rowData, tableMeta) => {
           return (
             <EditButton
               rowIndex={tableMeta.rowIndex}

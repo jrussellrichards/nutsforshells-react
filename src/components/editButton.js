@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const CustomCell = (props) => {
   // console.log("ROWS:" + props.rowIndex + "Target:" + props.rowTarget);
 
-  console.log("ROWS adentro:" + props.rowIndex+ "Target:" + props.rowTarget);
   if (props.rowIndex === props.rowTarget ) {
     return (
       <button onClick={() => props.onChangeInEditingMode('sendForm')}>
