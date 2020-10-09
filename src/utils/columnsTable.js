@@ -1,7 +1,7 @@
 import React from "react";
 import CustomCell from "../components/customCell";
 import EditButton from "../components/editButton";
-const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
+const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
   return [
     {
       name: "ID",
@@ -37,6 +37,7 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
             />
           );
         },
@@ -44,8 +45,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
     },
 
     {
-      name: "gender",
-      label: "Gender",
+      name: "genus",
+      label: "Genus",
       options: {
         filter: true,
         sort: true,
@@ -57,6 +58,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -77,6 +80,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -97,6 +102,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -117,6 +124,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -137,6 +146,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -157,6 +168,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
@@ -177,31 +190,15 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+              data = {data}
+
             />
           );
         },
       },
     },
 
-    {
-      name: "habitat",
-      label: "Habitat",
-      options: {
-        filter: true,
-        sort: true,
-        customBodyRender: (value, tableMeta, rowData) => {
-          return (
-            <CustomCell
-              rowIndex={tableMeta.rowIndex}
-              rowTarget={rowNumber}
-              value={value}
-              onChangeForm={onChangeForm}
-              columnName={tableMeta.columnData["name"]}
-            />
-          );
-        },
-      },
-    },
+
     {
       name: "Editar",
       options: {

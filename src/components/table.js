@@ -12,14 +12,12 @@ function SimpleTable(props) {
    const [form,setForm] = useState({
       id:'',
       family:'',
-      gender:'',
       species:'',
       quality:'',
       size:'',
       country:'',
       comment:'',
       price:'',
-      habitat:'',
       rowNumber:''
 
    })
@@ -61,7 +59,7 @@ function SimpleTable(props) {
         <AddShellModal />
       );
     },
-    columnOrder: [0,1,2,3,4,5,6,7,9,8,10],
+    columnOrder: [0,1,2,3,4,5,6,7,8,9],
     downloadOptions: {filename:'shells.csv',
     separator: ',',
   filterOptions:{
@@ -73,7 +71,6 @@ function SimpleTable(props) {
     const ids = RowsDeleted.data.map(d => shells[d.dataIndex][0]);
     rest.deleteShell(ids)},
 
-
   }
 
   
@@ -82,7 +79,7 @@ return (
   <MUIDataTable
     title={"NutsForShells"}
     data={shells}
-    columns={utils.columnsTable(form.rowNumber,onChangeInEditingMode,onChangeForm)}
+    columns={utils.columnsTable(form.rowNumber,onChangeInEditingMode,onChangeForm,shells)}
     options={options}
   />
 
