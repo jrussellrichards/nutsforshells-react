@@ -8,11 +8,13 @@ import CustomRow from '../components/customRow'
 var shells = {}
 
 function SimpleTable(props) {
-   shells = props.datos.map(dato => Object.values(dato))
+  //  shells = props.datos.map(dato => Object.values(dato))
+   shells = props.datos
    const [form,setForm] = useState({
       id:'',
       family:'',
-      species:'',
+      specie:'',
+      class:'',
       quality:'',
       size:'',
       country:'',
@@ -47,6 +49,7 @@ function SimpleTable(props) {
     filterType: 'dropdown',
     responsive: 'stacked',
     filter: true,
+    title:'nutsForShells',
     // resizableColumns: true,
     draggableColumns : {enabled:true},
     sort :true,
@@ -56,12 +59,14 @@ function SimpleTable(props) {
     // },
     customToolbar: () => {
       return (
-        <AddShellModal />
+        <div style ={{left:'50%'}}>
+        <AddShellModal  />
+        </div>
       );
     },
-    columnOrder: [0,1,2,3,4,5,6,7,8,9],
+    // columnOrder: [0,1,2,3,4,5,6,7,8,9],
     downloadOptions: {filename:'shells.csv',
-    separator: ',',
+    separator: ';',
   filterOptions:{
     useDisplayedRowsOnly:true,
     useDisplayedColumnsOnly:true

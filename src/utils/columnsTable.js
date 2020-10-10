@@ -4,7 +4,8 @@ import EditButton from "../components/editButton";
 const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
   return [
     {
-      name: "ID",
+      name: "id",
+      label: "Id",
       options: {
         // display: "excluded",
         filter: false,
@@ -18,6 +19,26 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
               value={value}
               onChangeForm={onChangeForm}
               columnName={tableMeta.columnData["name"]}
+            />
+          );
+        },
+      },
+    },
+    {
+      name: "class",
+      label: "Class",
+      options: {
+        filter: true,
+        sort: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <CustomCell
+              rowIndex={tableMeta.rowIndex}
+              rowTarget={rowNumber}
+              value={value}
+              onChangeForm={onChangeForm}
+              columnName={tableMeta.columnData["name"]}
+              data = {data}
             />
           );
         },
@@ -67,8 +88,8 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
     },
 
     {
-      name: "species",
-      label: "Species",
+      name: "specie",
+      label: "Specie",
       options: {
         filter: true,
         sort: true,

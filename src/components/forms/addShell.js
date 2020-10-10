@@ -4,14 +4,15 @@ import "./style.scss";
 
 export default ({ reqRegister, messages = {} }) => {
   const [form, setForm] = useState({
-    genero: "",
-    especie: "",
-    calidad: "",
-    tamano: "",
-    ciudad: "",
-    comentario: "",
-    precio: "",
-    habitat: "",
+    family: "",
+    genus: "",
+    specie: "",
+    quality: "",
+    size: "",
+    country: "",
+    comment: "",
+    price: "",
+    class: "",
   });
 
   const _handleRegister = async (e) => {
@@ -22,94 +23,94 @@ export default ({ reqRegister, messages = {} }) => {
 
   return (
     <section className="register-form-wrapper">
-      <label id="register-label">Agregar especie</label>
+      <label id="register-label">Add Specie</label>
       <form id="register-form" >
         {/* <FormLabel style={label}>Email</FormLabel> */}
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>Familia</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>family</label>
         <input
-          name="familia"
+          name="family"
           type="text"
           className="register-input"
-          onChange={(e) => setForm({ ...form, familia: e.target.value })}
-          familia={form.familia}
+          onChange={(e) => setForm({ ...form, family: e.target.value })}
+          family={form.family}
         />
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>genero</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>genus</label>
         <input
-          name="genero"
+          name="genus"
           type="text"
           className="register-input"
-          onChange={(e) => setForm({ ...form, genero: e.target.value })}
-          genero={form.genero}
+          onChange={(e) => setForm({ ...form, genus: e.target.value })}
+          genus={form.genus}
         />
     
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>especie</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>specie</label>
         <input
-          name="especie"
+          name="specie"
           type="text"
           className="register-input"
-        //   placeholder={user.especie}
-          onChange={(e) => setForm({ ...form, especie: e.target.value })}
+        //   placeholder={user.specie}
+          onChange={(e) => setForm({ ...form, specie: e.target.value })}
         />
 
         {/* <FormLabel style={label}>Rut</FormLabel> */}
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>calidad</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>quality</label>
         <input
-          name="calidad"
+          name="quality"
           type="text"
           className="register-input"
-        //   placeholder={user.calidad}
-          onChange={(e) => setForm({ ...form, calidad: e.target.value })}
+        //   placeholder={user.quality}
+          onChange={(e) => setForm({ ...form, quality: e.target.value })}
         />
         {/* <FormLabel style={label}>Liceo</FormLabel> */}
         
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>Tamaño</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>size</label>
         <input
-          name="tamano"
+          name="size"
           type="text"
           className="register-input"
-        //   placeholder={user.tamano}
-          onChange={(e) => setForm({ ...form, tamano: e.target.value })}
+        //   placeholder={user.size}
+          onChange={(e) => setForm({ ...form, size: e.target.value })}
         />
         {/* <FormLabel style={label}>Comuna</FormLabel> */}
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>País</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>country</label>
         <input
-          name="ciudad"
+          name="country"
           type="text"
           className="register-input"
-        //   placeholder={user.ciudad}
-          onChange={(e) => setForm({ ...form, ciudad: e.target.value })}
+        //   placeholder={user.country}
+          onChange={(e) => setForm({ ...form, country: e.target.value })}
         />
         {/* <FormLabel style={label}>Avatar</FormLabel> */}
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>comentario</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>comment</label>
         <input
-          name="comentario"
+          name="comment"
           type="text"
           className="register-input"
-        //   placeholder={user.comentario}
-          onChange={(e) => setForm({ ...form, comentario: e.target.value })}
+        //   placeholder={user.comment}
+          onChange={(e) => setForm({ ...form, comment: e.target.value })}
         />
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>Habitat</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>class</label>
         <input
-          name="habitat"
+          name="class"
           type="text"
           className="register-input"
-        //   placeholder={user.habitat}
-          onChange={(e) => setForm({ ...form, habitat: e.target.value })}
+        //   placeholder={user.class}
+          onChange={(e) => setForm({ ...form, class: e.target.value })}
         //   disabled
         />
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>Precio</label>
+        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>price</label>
         <input
-          name="precio"
+          name="price"
           type="text"
           className="register-input"
-        //   placeholder={user.precio}
-          onChange={(e) => setForm({ ...form, precio: e.target.value })}
+        //   placeholder={user.price}
+          onChange={(e) => setForm({ ...form, price: e.target.value })}
         //   disabled
         />
 
@@ -124,7 +125,7 @@ export default ({ reqRegister, messages = {} }) => {
           type="submit"
           onClick={_handleRegister}
         >
-          Agregar
+          Add
         </button>
       </form>
     </section>

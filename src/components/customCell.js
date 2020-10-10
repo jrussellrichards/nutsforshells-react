@@ -7,7 +7,7 @@ const CustomCell = (props) => {
   const shells = props.data;
   
   useEffect(() => {
-    console.log("entra a useEffect");
+    // console.log("entra a useEffect");
     if (
       props.rowIndex === props.rowTarget &&
       props.columnName.toLowerCase() === "id"
@@ -21,8 +21,26 @@ const CustomCell = (props) => {
   }
 
 
+  if (props.rowIndex === props.rowTarget && props.columnName === "class") {
+    const classes = [...new Set(shells.map(item => item.class))]
+    classes.sort()
+
+    return (
+<Autocomplete
+      id="combo-box-demo"
+      freeSolo
+      options={classes}
+      getOptionLabel={(classes) => classes}
+      style={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      onInputChange={(event,value) =>
+        props.onChangeForm(props.columnName.toLowerCase(), value)
+      }
+    />
+    );
+  }
   if (props.rowIndex === props.rowTarget && props.columnName === "family") {
-    const families = [...new Set(shells.map(item => item[1]))]
+    const families = [...new Set(shells.map(item => item.family))]
     families.sort()
 
     return (
@@ -41,7 +59,7 @@ const CustomCell = (props) => {
   }
   if (props.rowIndex === props.rowTarget && props.columnName === "genus") {
     // console.log
-    const genus = [...new Set(shells.map(item => item[2]))]
+    const genus = [...new Set(shells.map(item => item.genus))]
     genus.sort()
 
     return (
@@ -58,9 +76,9 @@ const CustomCell = (props) => {
     />
     );
   }
-  if (props.rowIndex === props.rowTarget && props.columnName === "species") {
+  if (props.rowIndex === props.rowTarget && props.columnName === "specie") {
     // console.log
-    const species = [...new Set(shells.map(item => item[3]))]
+    const species = [...new Set(shells.map(item => item.specie))]
     species.sort()
 
     return (
@@ -96,7 +114,7 @@ const CustomCell = (props) => {
 
 
   if (props.rowIndex === props.rowTarget && props.columnName === "size") {
-    let size = [...new Set(shells.map(item => item[5]))]
+    let size = [...new Set(shells.map(item => item.size))]
     size.sort()
     return (
 <Autocomplete
@@ -132,7 +150,7 @@ const CustomCell = (props) => {
   
   if (props.rowIndex === props.rowTarget && props.columnName === "comment") {
     // console.log
-    const comment = [...new Set(shells.map(item => item[7]))]
+    const comment = [...new Set(shells.map(item => item.comment))]
     comment.sort()
 
     return (
@@ -150,16 +168,16 @@ const CustomCell = (props) => {
     );
   }
   if (props.rowIndex === props.rowTarget && props.columnName === "price") {
-    // console.log
-    const price = [...new Set(shells.map(item => item[8]))]
+    const price = [...new Set(shells.map(item => item.price))].filter(word => word);
     price.sort()
+    console.log(price)
 
     return (
 <Autocomplete
       id="combo-box-demo"
       options={price}
       freeSolo
-      getOptionLabel={(price) => price}
+      getOptionLabel={(price) => price.toString()}
       style={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
       onInputChange={(event,value) =>

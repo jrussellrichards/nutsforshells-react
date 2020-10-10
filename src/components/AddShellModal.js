@@ -10,7 +10,7 @@ import AddShell from "../containers/addShell";
 
 function getModalStyle() {
   const top = 50;
-  const left = 50;
+  const left = '50%';
 
   return {
     top: `${top}%`,
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: 400,
+    left:'50%',
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
@@ -59,6 +60,7 @@ const SimpleModal = function SimpleModal() {
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        style = {{left:'40%'}}
       >
         {body}
       </Modal>

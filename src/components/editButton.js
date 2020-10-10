@@ -1,31 +1,32 @@
 import React, { useState } from "react";
+import Button from '@material-ui/core/Button';
 
 const CustomCell = (props) => {
   // console.log("ROWS:" + props.rowIndex + "Target:" + props.rowTarget);
 
   if (props.rowIndex === props.rowTarget ) {
     return (
-      <button onClick={() => props.onChangeInEditingMode('sendForm')}>
+      <Button variant="outlined" onClick={() => props.onChangeInEditingMode('sendForm')}>
       Aceptar
-      </button>
+      </Button>
     );
   }
 
 
   if(props.rowTarget!==''){
     return(
-      <button disabled onClick={() => props.onChangeInEditingMode(props.rowIndex)}>
+      <Button variant="outlined" disabled onClick={() => props.onChangeInEditingMode(props.rowIndex)}>
   Editar
-  </button>)
+  </Button>)
       
       
 
   }
 
   return(
-        <button onClick={() => props.onChangeInEditingMode(props.rowIndex)}>
+        <Button variant="outlined" onClick={() => props.onChangeInEditingMode(props.rowIndex)}>
     Editar
-    </button>)
+    </Button>)
   
 };
 export default CustomCell;
