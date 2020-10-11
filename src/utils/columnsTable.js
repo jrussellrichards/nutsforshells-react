@@ -1,7 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
 import CustomCell from "../components/customCell";
 import EditButton from "../components/editButton";
-const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
+
+const form ={
+  id:'',
+  family:'',
+  specie:'',
+  class:'',
+  quality:'',
+  size:'',
+  country:'',
+  comment:'',
+  price:'',
+  rowNumber:''
+
+}
+
+const onChangeForm = (column,value) => {
+  console.log(form)
+
+  form[column] = value
+ }
+
+
+const customColumns = (rowNumber, onChangeInEditingMode,data) => {
+
+
+
   return [
     {
       name: "id",
@@ -224,6 +249,9 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
       name: "Editar",
       options: {
         download: false,
+        filter: false,
+        sort:false,
+        draggable:false,
 
         customBodyRender: (rowData, tableMeta) => {
           return (
@@ -233,7 +261,6 @@ const customColumns = (rowNumber, onChangeInEditingMode, onChangeForm,data) => {
               rowTarget={rowNumber}
             />
           );
-          // return <b>{!rowTarget ?  <button onClick={() =>{onChangeInEditingMode(tableMeta.rowIndex)}}>Editar</button> : <button onClick={onChangeInEditingMode}>Aceptar</button>}</b>
         },
       },
     },

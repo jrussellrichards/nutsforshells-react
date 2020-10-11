@@ -5,6 +5,7 @@ import utils from '../utils';
 const CustomCell = (props) => {
   // console.log("ROWS:" + props.rowIndex + "Target:" + props.rowTarget);
   const shells = props.data;
+  console.log('this is log',props.rowIndex,props.rowTarget)
   
   useEffect(() => {
     // console.log("entra a useEffect");

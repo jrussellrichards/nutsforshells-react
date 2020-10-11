@@ -3,7 +3,6 @@ import MUIDataTable from "mui-datatables";
 import AddShellModal from "./AddShellModal";
 import utils from '../utils'
 import rest from '../rest'
-import CustomRow from '../components/customRow'
 
 var shells = {}
 
@@ -26,6 +25,7 @@ function SimpleTable(props) {
 
    
    const onChangeInEditingMode = (rowNumber) => {
+     console.log(form)
      if(form.rowNumber===''){
       setForm({...form,rowNumber})
   
@@ -82,9 +82,8 @@ function SimpleTable(props) {
 return (
 
   <MUIDataTable
-    title={"NutsForShells"}
     data={shells}
-    columns={utils.columnsTable(form.rowNumber,onChangeInEditingMode,onChangeForm,shells)}
+    columns={utils.columnsTable(form.rowNumber,onChangeInEditingMode,shells)}
     options={options}
   />
 
