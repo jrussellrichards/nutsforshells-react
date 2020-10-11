@@ -44,14 +44,21 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
     }
   }
 
+  const isInEditingMode = () =>{
+    console.log('rowNumber',rowNumber)
 
+    if(rowNumber!==''){
+      return false
+    }
+    return true
+  }
 
   return [
     {
       name: "id",
       label: "Id",
       options: {
-        // display: "excluded",
+        display: isInEditingMode(),
         filter: false,
         sort: true,
         download: true,
