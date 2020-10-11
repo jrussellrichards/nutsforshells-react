@@ -9,40 +9,14 @@ var shells = {}
 function SimpleTable(props) {
   //  shells = props.datos.map(dato => Object.values(dato))
    shells = props.datos
-   const [form,setForm] = useState({
-      id:'',
-      family:'',
-      specie:'',
-      class:'',
-      quality:'',
-      size:'',
-      country:'',
-      comment:'',
-      price:'',
-      rowNumber:''
-
-   })
+   const [selectedRow,setSelectedRow] = useState('')
 
    
-   const onChangeInEditingMode = (rowNumber) => {
-     console.log(form)
-     if(form.rowNumber===''){
-      setForm({...form,rowNumber})
-  
-     }
-     else{
-
-      rest.updateShell(form)
-      setForm({...form,rowNumber:''})
-
-     }
+   const onChangeSelectedRow = (rowNumber) => {
+    setSelectedRow(rowNumber)
    }
 
-   const onChangeForm = (column,value) => {
-
-    setForm({ ...form, [column]: value })
-   }
-
+   
 
 
   const options = {
@@ -83,7 +57,7 @@ return (
 
   <MUIDataTable
     data={shells}
-    columns={utils.columnsTable(form.rowNumber,onChangeInEditingMode,shells)}
+    columns={utils.columnsTable(selectedRow,onChangeSelectedRow,shells)}
     options={options}
   />
 

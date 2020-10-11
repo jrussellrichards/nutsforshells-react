@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import CustomCell from "../components/customCell";
 import EditButton from "../components/editButton";
+import rest from "../rest"
 
 const form ={
   id:'',
@@ -11,19 +12,37 @@ const form ={
   size:'',
   country:'',
   comment:'',
-  price:'',
-  rowNumber:''
+  price:''
 
 }
 
 const onChangeForm = (column,value) => {
-  console.log(form)
 
   form[column] = value
  }
 
 
-const customColumns = (rowNumber, onChangeInEditingMode,data) => {
+const customColumns = (rowNumber,onChangeSelectedRow, data) => {
+
+  const getRow = (column,value) => {
+    return rowNumber
+   }
+  
+  const onChangeInEditingMode = (row) => {
+    if(rowNumber===''){
+      onChangeSelectedRow(row)
+    console.log(row)
+
+  
+    }
+    else{
+  
+     rest.updateShell(form)
+     onChangeSelectedRow('')
+  
+  
+    }
+  }
 
 
 
@@ -259,6 +278,7 @@ const customColumns = (rowNumber, onChangeInEditingMode,data) => {
               rowIndex={tableMeta.rowIndex}
               onChangeInEditingMode={onChangeInEditingMode}
               rowTarget={rowNumber}
+              getRow = {getRow}
             />
           );
         },
