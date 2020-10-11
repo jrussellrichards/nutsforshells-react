@@ -19,6 +19,7 @@ const form ={
 const onChangeForm = (column,value) => {
 
   form[column] = value
+  console.log(form)
  }
 
 
@@ -44,8 +45,10 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
     }
   }
 
-  const isInEditingMode = () =>{
+  const isInEditingMode = (row) =>{
     console.log('rowNumber',rowNumber)
+    form['id']= row
+
 
     if(rowNumber!==''){
       return false
@@ -58,7 +61,6 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
       name: "id",
       label: "Id",
       options: {
-        display: isInEditingMode(),
         filter: false,
         sort: true,
         download: true,
@@ -79,6 +81,7 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
       name: "class",
       label: "Class",
       options: {
+        display: isInEditingMode(),
         filter: true,
         sort: true,
         display:isInEditingMode(),
