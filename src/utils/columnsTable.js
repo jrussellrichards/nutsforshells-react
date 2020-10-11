@@ -22,23 +22,23 @@ const onChangeForm = (column,value) => {
  }
 
 
-const customColumns = (rowNumber,onChangeSelectedRow, data) => {
+const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
 
   const getRow = (column,value) => {
     return rowNumber
    }
   
-  const onChangeInEditingMode = (row) => {
+  const onChangeInEditingMode = async (row) => {
     if(rowNumber===''){
       onChangeSelectedRow(row)
-    console.log(row)
 
   
     }
     else{
   
-     rest.updateShell(form)
+     rest.updateShell(form,onLoadData)
      onChangeSelectedRow('')
+
   
   
     }

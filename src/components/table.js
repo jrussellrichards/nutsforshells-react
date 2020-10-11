@@ -57,7 +57,7 @@ return (
 
   <MUIDataTable
     data={shells}
-    columns={utils.columnsTable(selectedRow,onChangeSelectedRow,shells)}
+    columns={utils.columnsTable(selectedRow,onChangeSelectedRow,shells,props.onLoadData)}
     options={options}
   />
 

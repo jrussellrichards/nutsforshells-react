@@ -5,7 +5,6 @@ import utils from '../utils';
 const CustomCell = (props) => {
   // console.log("ROWS:" + props.rowIndex + "Target:" + props.rowTarget);
   const shells = props.data;
-  console.log('this is log',props.rowIndex,props.rowTarget)
   
   useEffect(() => {
     // console.log("entra a useEffect");
@@ -33,7 +32,7 @@ const CustomCell = (props) => {
       options={classes}
       getOptionLabel={(classes) => classes}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -51,7 +50,7 @@ const CustomCell = (props) => {
       options={families}
       getOptionLabel={(families) => families}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -70,7 +69,7 @@ const CustomCell = (props) => {
       freeSolo
       getOptionLabel={(genus) => genus}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -89,7 +88,7 @@ const CustomCell = (props) => {
       freeSolo
       getOptionLabel={(species) => species}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -105,7 +104,7 @@ const CustomCell = (props) => {
       options={quality}
       getOptionLabel={(quality) => quality}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -123,7 +122,7 @@ const CustomCell = (props) => {
       options={size}
       getOptionLabel={(size) => size}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -141,7 +140,7 @@ const CustomCell = (props) => {
       freeSolo
       getOptionLabel={(countries) => countries.label}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -161,7 +160,7 @@ const CustomCell = (props) => {
       freeSolo
       getOptionLabel={(comment) => comment}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }
@@ -180,7 +179,7 @@ const CustomCell = (props) => {
       freeSolo
       getOptionLabel={(price) => price.toString()}
       style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label={`select ${props.columnName}`} variant="outlined" />}
+      renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
       }

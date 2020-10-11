@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const updateUser = ( form) =>
+const updateShell = ( form,dispatch) =>
   axios({
     method: "put",
     url: `https://nutsforshells-api.herokuapp.com/shell`,
     data: form,
-  }).then((res) => res.data);
+  }).then((res) => dispatch());
 
-export default updateUser;
+export default updateShell;
