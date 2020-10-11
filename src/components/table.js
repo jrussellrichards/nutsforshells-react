@@ -23,6 +23,10 @@ function SimpleTable(props) {
     filterType: 'dropdown',
     responsive: 'stacked',
     filter: true,
+    sortOrder: {
+      name: 'id',
+      direction: 'desc'
+    },
     title:'nutsForShells',
     // resizableColumns: true,
     draggableColumns : {enabled:true},
