@@ -81,6 +81,7 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
       options: {
         filter: true,
         sort: true,
+        display:isInEditingMode(),
         customBodyRender: (value, tableMeta, updateValue) => {
           return (
             <CustomCell
@@ -99,6 +100,7 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
       name: "family",
       label: "Family",
       options: {
+        display: isInEditingMode(),
         filter: true,
         sort: true,
         customBodyRender: (value, tableMeta, updateValue) => {
@@ -120,6 +122,7 @@ const customColumns = (rowNumber,onChangeSelectedRow, data,onLoadData) => {
       name: "genus",
       label: "Genus",
       options: {
+        display: isInEditingMode(),
         filter: true,
         sort: true,
         customBodyRender: (value, tableMeta, updateValue) => {
