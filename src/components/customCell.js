@@ -31,7 +31,7 @@ const CustomCell = (props) => {
       freeSolo
       options={classes}
       getOptionLabel={(classes) => classes}
-      style={{ width: '120%' }}
+      style={{ width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -49,7 +49,7 @@ const CustomCell = (props) => {
       freeSolo
       options={families}
       getOptionLabel={(families) => families}
-      style={{ width: '120%' }}
+      style={{ width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -68,7 +68,7 @@ const CustomCell = (props) => {
       options={genus}
       freeSolo
       getOptionLabel={(genus) => genus}
-      style={{ width: '10em' }}
+      style={{ margin:'1em',width: '10em' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -87,7 +87,7 @@ const CustomCell = (props) => {
       options={species}
       freeSolo
       getOptionLabel={(species) => species}
-      style={{ width: '120%' }}
+      style={{ width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -103,7 +103,7 @@ const CustomCell = (props) => {
       id="combo-box-demo"
       options={quality}
       getOptionLabel={(quality) => quality}
-      style={{ width: '100%' }}
+      style={{ margin:'1em',width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -121,7 +121,7 @@ const CustomCell = (props) => {
       id="combo-box-demo"
       options={size}
       getOptionLabel={(size) => size}
-      style={{ width: '120%' }}
+      style={{ width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -139,7 +139,7 @@ const CustomCell = (props) => {
       options={utils.countries}
       freeSolo
       getOptionLabel={(countries) => countries.label}
-      style={{ width: '120%' }}
+      style={{ width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -159,7 +159,7 @@ const CustomCell = (props) => {
       options={comment}
       freeSolo
       getOptionLabel={(comment) => comment}
-      style={{ width: '15em' }}
+      style={{ margin:'1em',width: '15em' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
@@ -178,7 +178,7 @@ const CustomCell = (props) => {
       options={price}
       freeSolo
       getOptionLabel={(price) => price.toString()}
-      style={{ width: '100%' }}
+      style={{ margin:'1em',width: '100%' }}
       renderInput={(params) => <TextField {...params} label={` ${props.value}`} variant="outlined" />}
       onInputChange={(event,value) =>
         props.onChangeForm(props.columnName.toLowerCase(), value)
