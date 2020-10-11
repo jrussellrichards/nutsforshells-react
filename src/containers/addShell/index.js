@@ -16,7 +16,7 @@ export default (props) => {
   };
 
   return(
-      <section style={{outline:'none', ':hover': {outline: 'none!important'}}} className='register-component-wrapper'>
+      <section style={{height: '100%',outline:'none', ':hover': {outline: 'none!important'}}} className='register-component-wrapper'>
         <RegisterForm reqRegister={ _reqRegister } messages={{}} data = {props.data} onLoadData   />
       </section>
   )

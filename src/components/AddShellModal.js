@@ -58,7 +58,8 @@ const SimpleModal = function SimpleModal(props) {
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        style={{ left: "40%" }}
+        style={{ left: "40%" ,width : '30em' }}
+        
       >
         <AddShell data={props.data} onLoadData={props.onLoadData} handleClose={handleClose}/>
       </Modal>
