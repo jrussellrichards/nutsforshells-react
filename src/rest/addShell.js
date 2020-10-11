@@ -1,16 +1,9 @@
 import axios from "axios";
 
-export default (form) => {
-  console.log(form)
+export default (form,dispatch) => {
   axios({
     method: 'post',
     url: 'https://nutsforshells-api.herokuapp.com/shell',
     data: { ...form },
-  }).then((res) => res.data);
+  }).then((res) =>{ dispatch(); return res.data} )
 };
-
-
-// url: 'https://nutsforshells-api.herokuapp.com/shell',
-
-
-

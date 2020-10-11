@@ -1,26 +1,21 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 // Component
-import forms from "../../components/forms/";
-import rest from "../../rest";
+import RegisterForm from "../../components/forms/addShell"
+import addShell from "../../rest/addShell";
 
-import "./style.scss";
 
 export default (props) => {
-  const history = useHistory();
 
   const _reqRegister = async (form) => {
-    console.log(form)
-    const res = await rest.addShell(form);
-    console.log(res)
-    if ( res ) alert("Registro exitoso!")
-    else alert("Ups! Hubo un problema, vuelve a intentarlo comunicate con soporte.")
-    history.push("/");
+    const res = await addShell(form,props.onLoadData);
+    console.log('resss:'+res)
+    if ( res ) alert("Se agrego la especie!")
+    else alert("Ups! Hubo un problema, vuelve a intentarlo o comunicate con Javier.")
   };
 
   return(
-
-        <forms.AddShell reqRegister={ _reqRegister } messages={{}} />
-
+      <section style={{outline:'none', ':hover': {outline: 'none!important'}}} className='register-component-wrapper'>
+        <RegisterForm reqRegister={ _reqRegister } messages={{}} data = {props.data} onLoadData  />
+      </section>
   )
 };

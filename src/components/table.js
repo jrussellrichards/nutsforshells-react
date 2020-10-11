@@ -33,9 +33,7 @@ function SimpleTable(props) {
     // },
     customToolbar: () => {
       return (
-        <div style ={{left:'50%'}}>
-        <AddShellModal  />
-        </div>
+        <AddShellModal data = {props.datos} onLoadData = {props.onLoadData} />
       );
     },
     // columnOrder: [0,1,2,3,4,5,6,7,8,9],
@@ -47,7 +45,7 @@ function SimpleTable(props) {
   }},
 
   onRowsDelete: (RowsDeleted) => {
-    const ids = RowsDeleted.data.map(d => shells[d.dataIndex][0]);
+    const ids = RowsDeleted.data.map(d => shells[d.dataIndex].id);
     rest.deleteShell(ids)},
 
   }

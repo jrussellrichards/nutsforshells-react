@@ -1,8 +1,42 @@
 import React, { useState, useEffect } from "react";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import "./style.scss";
+import Button from "@material-ui/core/Button";
 
+export default ({ reqRegister, messages = {}, data }) => {
+  const columnValues = {};
 
-export default ({ reqRegister, messages = {} }) => {
+  const styleMargin = {
+    margin:'0.25em',
+    width: '30em'
+  };
+
+  const distinctValues = (column) => {
+    let flags = [],
+      output = [],
+      l = data.length,
+      i;
+
+    for (i = 0; i < l; i++) {
+      if (flags[data[i][column]]) continue;
+      flags[data[i][column]] = true;
+      output.push(data[i][column]);
+    }
+
+    return flags;
+  };
+
+  columnValues.class = Object.keys(distinctValues("class"));
+  columnValues.family = Object.keys(distinctValues("family"));
+  columnValues.genus = Object.keys(distinctValues("genus"));
+  columnValues.specie = Object.keys(distinctValues("specie"));
+  columnValues.quality = Object.keys(distinctValues("quality"));
+  columnValues.size = Object.keys(distinctValues("size"));
+  columnValues.country = Object.keys(distinctValues("country"));
+  columnValues.comment = Object.keys(distinctValues("comment"));
+  columnValues.price = Object.keys(distinctValues("price"));
+
   const [form, setForm] = useState({
     family: "",
     genus: "",
@@ -15,118 +49,133 @@ export default ({ reqRegister, messages = {} }) => {
     class: "",
   });
 
-  const _handleRegister = async (e) => {
-      e.preventDefault();
-      await reqRegister(form);
-  };
+  console.log(form);
 
+  const _handleRegister = async (e) => {
+    e.preventDefault();
+    await reqRegister(form);
+  };
+  let quality = ["F", "F+", "F++", "F+++"];
 
   return (
     <section className="register-form-wrapper">
-      <label id="register-label">Add Specie</label>
-      <form id="register-form" >
-        {/* <FormLabel style={label}>Email</FormLabel> */}
+      <form id="register-form">
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.class}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Class`} variant="outlined" />
+          )}
+          onInputChange={
+            (event, value) => {
+              setForm({ ...form, class: value });
+            }
+            // setForm(props.columnName.toLowerCase(), value)
+          }
+        />
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.family}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Family`} variant="outlined" />
+          )}
+          onInputChange={
+            (event, value) => setForm({ ...form, family: value })
 
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>family</label>
-        <input
-          name="family"
-          type="text"
-          className="register-input"
-          onChange={(e) => setForm({ ...form, family: e.target.value })}
-          family={form.family}
+            // setForm(props.columnName.toLowerCase(), value)
+          }
         />
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>genus</label>
-        <input
-          name="genus"
-          type="text"
-          className="register-input"
-          onChange={(e) => setForm({ ...form, genus: e.target.value })}
-          genus={form.genus}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.genus}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Genus`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, genus: value })}
         />
-    
-
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>specie</label>
-        <input
-          name="specie"
-          type="text"
-          className="register-input"
-        //   placeholder={user.specie}
-          onChange={(e) => setForm({ ...form, specie: e.target.value })}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.specie}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Specie`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, specie: value })}
         />
-
-        {/* <FormLabel style={label}>Rut</FormLabel> */}
-
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>quality</label>
-        <input
-          name="quality"
-          type="text"
-          className="register-input"
-        //   placeholder={user.quality}
-          onChange={(e) => setForm({ ...form, quality: e.target.value })}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={quality}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Quality`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, quality: value })}
         />
-        {/* <FormLabel style={label}>Liceo</FormLabel> */}
-        
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>size</label>
-        <input
-          name="size"
-          type="text"
-          className="register-input"
-        //   placeholder={user.size}
-          onChange={(e) => setForm({ ...form, size: e.target.value })}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.size}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Size`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, size: value })}
         />
-        {/* <FormLabel style={label}>Comuna</FormLabel> */}
-
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>country</label>
-        <input
-          name="country"
-          type="text"
-          className="register-input"
-        //   placeholder={user.country}
-          onChange={(e) => setForm({ ...form, country: e.target.value })}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.country}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Country`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, country: value })}
         />
-        {/* <FormLabel style={label}>Avatar</FormLabel> */}
-
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>comment</label>
-        <input
-          name="comment"
-          type="text"
-          className="register-input"
-        //   placeholder={user.comment}
-          onChange={(e) => setForm({ ...form, comment: e.target.value })}
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.comment}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Comment`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, comment: value })}
         />
-
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>class</label>
-        <input
-          name="class"
-          type="text"
-          className="register-input"
-        //   placeholder={user.class}
-          onChange={(e) => setForm({ ...form, class: e.target.value })}
-        //   disabled
+        <Autocomplete
+          style={styleMargin}
+          id="combo-box-demo"
+          options={columnValues.price}
+          getOptionLabel={(option) => option}
+          
+          renderInput={(params) => (
+            <TextField {...params} label={`Price`} variant="outlined" />
+          )}
+          onInputChange={(event, value) => setForm({ ...form, price: value })}
         />
-        <label style={{textAlign: "left", width: "100%", marginBottom: "10px"}}>price</label>
-        <input
-          name="price"
-          type="text"
-          className="register-input"
-        //   placeholder={user.price}
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
-        //   disabled
-        />
-
-   
-        {messages.error ? (
-          <section class="login-error">{messages.error}</section>
-        ) : (
-          <div className="v-spacer" />
-        )}
-        <button
-          id="register-submit-button"
+        <Button
           type="submit"
           onClick={_handleRegister}
+          variant="contained"
+          color="primary"
         >
-          Add
-        </button>
+          Aceptar
+        </Button>
       </form>
     </section>
   );

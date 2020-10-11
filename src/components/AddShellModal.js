@@ -10,7 +10,7 @@ import AddShell from "../containers/addShell";
 
 function getModalStyle() {
   const top = 50;
-  const left = '50%';
+  const left = "50%";
 
   return {
     top: `${top}%`,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: 400,
-    left:'50%',
+    left: "50%",
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SimpleModal = function SimpleModal() {
+const SimpleModal = function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -47,12 +47,10 @@ const SimpleModal = function SimpleModal() {
     setOpen(false);
   };
 
-  const body = <AddShell />;
-
   return (
-    < >
+    <>
       <IconButton onClick={handleOpen} className={classes.iconButton}>
-        <AddIcon  className={classes.deleteIcon} />
+        <AddIcon className={classes.deleteIcon} />
       </IconButton>
 
       <Modal
@@ -60,9 +58,9 @@ const SimpleModal = function SimpleModal() {
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        style = {{left:'40%'}}
+        style={{ left: "40%" }}
       >
-        {body}
+        <AddShell data={props.data} onLoadData={props.onLoadData}/>
       </Modal>
     </>
   );

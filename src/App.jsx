@@ -11,17 +11,7 @@ class App extends Component {
     addModal: false,
   };
 
-  handleOpen = () => {
-    this.setState({
-      addModal: true,
-    });
-  };
 
-  handleClose = () => {
-    this.setState({
-      addModal: false,
-    });
-  };
 
 
   componentDidMount() {
