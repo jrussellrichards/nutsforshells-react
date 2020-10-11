@@ -5,5 +5,5 @@ export default (form,dispatch) => {
     method: 'post',
     url: 'https://nutsforshells-api.herokuapp.com/shell',
     data: { ...form },
-  }).then((res) =>{ dispatch(); return res.data} )
+  }).then((res) =>{ dispatch(); return res} )
 };

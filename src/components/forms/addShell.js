@@ -8,8 +8,8 @@ export default ({ reqRegister, messages = {}, data }) => {
   const columnValues = {};
 
   const styleMargin = {
-    margin:'0.25em',
-    width: '30em'
+    margin: "0.25em",
+    width: "30em",
   };
 
   const distinctValues = (column) => {
@@ -49,7 +49,6 @@ export default ({ reqRegister, messages = {}, data }) => {
     class: "",
   });
 
-  console.log(form);
 
   const _handleRegister = async (e) => {
     e.preventDefault();
@@ -61,11 +60,11 @@ export default ({ reqRegister, messages = {}, data }) => {
     <section className="register-form-wrapper">
       <form id="register-form">
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.class}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Class`} variant="outlined" />
           )}
@@ -77,11 +76,11 @@ export default ({ reqRegister, messages = {}, data }) => {
           }
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.family}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Family`} variant="outlined" />
           )}
@@ -92,22 +91,22 @@ export default ({ reqRegister, messages = {}, data }) => {
           }
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.genus}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Genus`} variant="outlined" />
           )}
           onInputChange={(event, value) => setForm({ ...form, genus: value })}
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.specie}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Specie`} variant="outlined" />
           )}
@@ -118,18 +117,17 @@ export default ({ reqRegister, messages = {}, data }) => {
           id="combo-box-demo"
           options={quality}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Quality`} variant="outlined" />
           )}
           onInputChange={(event, value) => setForm({ ...form, quality: value })}
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.size}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Size`} variant="outlined" />
           )}
@@ -140,29 +138,28 @@ export default ({ reqRegister, messages = {}, data }) => {
           id="combo-box-demo"
           options={columnValues.country}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Country`} variant="outlined" />
           )}
           onInputChange={(event, value) => setForm({ ...form, country: value })}
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.comment}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Comment`} variant="outlined" />
           )}
           onInputChange={(event, value) => setForm({ ...form, comment: value })}
         />
         <Autocomplete
+          freeSolo
           style={styleMargin}
           id="combo-box-demo"
           options={columnValues.price}
           getOptionLabel={(option) => option}
-          
           renderInput={(params) => (
             <TextField {...params} label={`Price`} variant="outlined" />
           )}
